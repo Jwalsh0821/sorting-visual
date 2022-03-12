@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+}
+
+#item {
+  display: inline-block;
+  background-clip: content-box;
+  background-color: black;
+  width: 2em;
+  padding: 1em;
+}
+button {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+#sort-button {
+  background-color: blue;
+  color: white;
+}
+
+#reset-button {
+  background-color: red;
+  color: white;
+}
+
+#button-container {
+  padding-top: 5em;
+}
+
+#button-container span {
+  padding: 2em;
+}
