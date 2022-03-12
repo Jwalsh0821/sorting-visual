@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-#item {
+.item {
   display: inline-block;
   background-clip: content-box;
   background-color: black;

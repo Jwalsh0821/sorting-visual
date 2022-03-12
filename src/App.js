@@ -4,7 +4,7 @@ import "./App.css";
 const numOfElements = 50;
 const width = 50 / numOfElements;
 const padding = 10 / numOfElements;
-const speed = 1;
+const speed = 5;
 const getInitialSizes = () => {
   let arr = [];
   for (let i = 0; i < numOfElements; i++) {
@@ -21,18 +21,21 @@ const sleep = (milliseconds) => {
 function App() {
   const [sizes, setSizes] = useState([...initialSizes]);
 
-  async function quickSort(arr) {
+  async function selectionSort(arr) {
     let n = arr.length;
 
     for (let i = 0; i < n; i++) {
       // Finding the smallest number in the subarray
+      document.getElementById(i.toString()).style.backgroundColor = "green";
       await sleep(speed);
       let min = i;
       for (let j = i + 1; j < n; j++) {
+        document.getElementById(j.toString()).style.backgroundColor = "red";
         await sleep(speed);
         if (arr[j] < arr[min]) {
           min = j;
         }
+        document.getElementById(j.toString()).style.backgroundColor = "black";
       }
       if (min != i) {
         // Swapping the elements
@@ -41,12 +44,13 @@ function App() {
         arr[min] = tmp;
         setSizes([...arr]);
       }
+      document.getElementById(i.toString()).style.backgroundColor = "black";
     }
     return arr;
   }
 
   function handleSortClick() {
-    quickSort(sizes);
+    selectionSort(sizes);
   }
   function handleReset() {
     setSizes(getInitialSizes);
@@ -56,7 +60,8 @@ function App() {
       <div id="itemContainer">
         {sizes.map((size, index) => (
           <span
-            id="item"
+            className="item"
+            id={index.toString()}
             key={index}
             style={{
               height: size * 10 + "px",
