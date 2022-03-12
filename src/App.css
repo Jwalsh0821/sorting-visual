@@ -32,3 +32,10 @@ button {
 #button-container span {
   padding: 2em;
 }
+label {
+  padding: 2em;
+}
+
+#numElements-label {
+  padding: 1em;
+}
